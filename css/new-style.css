@@ -1,0 +1,18 @@
+/*
+	Theme Name: Park Electric
+	Theme URI: http://jj_theme.com
+	Description: WordPress Theme
+	Version: 1.4.3
+	Author: Pixxels
+	Author URI: http://pixxels.co.uk/
+	Tags: Blank, HTML5, CSS3
+
+	License: MIT
+	License URI: http://opensource.org/licenses/mit-license.php
+*/
+
+/*------------------------------------*\
+    MAIN
+\*------------------------------------*/
+@import "css/style.css"; /*sass generated styles */
+
