@@ -1,0 +1,29 @@
+# GitHub Pages configuration for Jay Desai's Portfolio
+
+# Build settings
+markdown: kramdown
+
+# Exclude files from build
+exclude:
+  - .gitignore
+  - README.md
+  - .vscode
+  - .idea
+  - node_modules
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Site settings
+title: Jay Desai - Senior Software Engineer
+email: jaydesai36@gmail.com
+description: Netflix-themed interactive portfolio showcasing professional experience in firmware, embedded systems, and 5G technology.
+
+# Social
+linkedin_username: jjdesai
+medium_username: jaydesai36
+
+# Theme
+theme: minima

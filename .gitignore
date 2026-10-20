@@ -1,0 +1,29 @@
+# OS Files
+.DS_Store
+Thumbs.db
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Node
+node_modules/
+npm-debug.log
+
+# Build
+dist/
+build/
+
+# Temporary files
+*.tmp
+*.temp
+~*
+
+# OS-specific
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes

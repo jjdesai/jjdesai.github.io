@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jay Desai - Senior Software Engineer</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="profile-picker" id="profile-picker" aria-labelledby="profile-picker-title">
+        <div class="profile-picker-content">
+            <h1 id="profile-picker-title">Who's watching?</h1>
+            <div class="profile-list">
+                <button class="profile-choice" type="button" data-profile="Embedded" aria-label="Continue as Embedded Expert">
+                    <span class="profile-avatar avatar-embedded" aria-hidden="true">
+                        <svg viewBox="0 0 160 160" role="img">
+                            <rect width="160" height="160" rx="8" fill="#164d72"/>
+                            <path d="M0 28h38l14 14h28M160 118h-33l-13-13H88M18 160v-30l14-14h21M143 0v31l-13 13h-20" fill="none" stroke="#42d7e8" stroke-width="5"/>
+                            <rect x="47" y="47" width="66" height="66" rx="9" fill="#102f49" stroke="#f3a83b" stroke-width="5"/>
+                            <rect x="62" y="62" width="36" height="36" rx="4" fill="#f3a83b"/>
+                            <path d="M58 37v10m15-10v10m15-10v10m15-10v10m-45 66v10m15-10v10m15-10v10m15-10v10M37 58h10m-10 15h10m-10 15h10m-10 15h10m66-45h10m-10 15h10m-10 15h10m-10 15h10" stroke="#42d7e8" stroke-width="5" stroke-linecap="round"/>
+                            <circle cx="20" cy="28" r="6" fill="#f3a83b"/>
+                            <circle cx="143" cy="133" r="6" fill="#f3a83b"/>
+                        </svg>
+                    </span>
+                    <span class="profile-name">Embedded Expert</span>
+                </button>
+                <button class="profile-choice" type="button" data-profile="Telecom" aria-label="Continue as Telecom Expert">
+                    <span class="profile-avatar avatar-telecom" aria-hidden="true">
+                        <svg viewBox="0 0 160 160" role="img">
+                            <rect width="160" height="160" rx="8" fill="#174b6b"/>
+                            <circle cx="80" cy="77" r="59" fill="#206f88"/>
+                            <path d="M80 42 48 131h64L80 42Z" fill="#f0a23b" stroke="#ffe3a8" stroke-width="4" stroke-linejoin="round"/>
+                            <path d="m66 82 14 10 14-10M60 105h40M80 92v39" fill="none" stroke="#174b6b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M51 63a41 41 0 0 1 58 0M38 50a60 60 0 0 1 84 0" fill="none" stroke="#d8f3f1" stroke-width="5" stroke-linecap="round"/>
+                            <circle cx="80" cy="38" r="6" fill="#fff1c8"/>
+                            <path d="M22 143h116" stroke="#d8f3f1" stroke-width="5" stroke-linecap="round"/>
+                        </svg>
+                    </span>
+                    <span class="profile-name">Telecom Expert</span>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <div id="portfolio" hidden>
+        <!-- Portfolio Navigation -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <a class="brand" href="#home" aria-label="Jay Desai home">Jay Desai</a>
+                <div class="nav-links" aria-label="Primary navigation">
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#company" class="nav-link">Company</a>
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#experience" class="nav-link">Experience</a>
+                    <a href="#gallery" class="nav-link">Gallery</a>
+                    <div class="nav-more">
+                        <button class="more-toggle" id="more-toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="more-menu">
+                            More <span aria-hidden="true">⌄</span>
+                        </button>
+                        <div class="more-menu" id="more-menu" hidden>
+                            <a href="#about">About</a>
+                            <a href="#publications">Publications</a>
+                            <a href="#contact">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-actions">
+                    <div class="search-control">
+                        <button class="icon-button" id="search-toggle" type="button" aria-label="Search portfolio" aria-expanded="false" aria-controls="search-panel">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg>
+                        </button>
+                        <div class="search-panel" id="search-panel" role="search" hidden>
+                            <label for="site-search">Search this portfolio</label>
+                            <input id="site-search" type="search" placeholder="Projects, companies, experience..." autocomplete="off">
+                            <div class="search-results" id="search-results" aria-live="polite"></div>
+                        </div>
+                    </div>
+                    <div class="profile-control">
+                        <button class="profile-toggle" id="profile-toggle" type="button" aria-expanded="false" aria-controls="profile-menu">
+                            <span class="profile-mini-avatar" id="nav-profile-avatar" data-profile="Embedded" aria-hidden="true">
+                                <svg class="mini-avatar-art mini-embedded-art" viewBox="0 0 160 160" focusable="false">
+                                    <rect width="160" height="160" fill="#164d72"/>
+                                    <path d="M0 28h38l14 14h28M160 118h-33l-13-13H88M18 160v-30l14-14h21M143 0v31l-13 13h-20" fill="none" stroke="#42d7e8" stroke-width="5"/>
+                                    <rect x="47" y="47" width="66" height="66" rx="9" fill="#102f49" stroke="#f3a83b" stroke-width="5"/>
+                                    <rect x="62" y="62" width="36" height="36" rx="4" fill="#f3a83b"/>
+                                    <path d="M58 37v10m15-10v10m15-10v10m15-10v10m-45 66v10m15-10v10m15-10v10m15-10v10M37 58h10m-10 15h10m-10 15h10m-10 15h10m66-45h10m-10 15h10m-10 15h10m-10 15h10" stroke="#42d7e8" stroke-width="5" stroke-linecap="round"/>
+                                </svg>
+                                <svg class="mini-avatar-art mini-telecom-art" viewBox="0 0 160 160" focusable="false">
+                                    <rect width="160" height="160" fill="#174b6b"/>
+                                    <circle cx="80" cy="77" r="59" fill="#206f88"/>
+                                    <path d="M80 42 48 131h64L80 42Z" fill="#f0a23b" stroke="#ffe3a8" stroke-width="4" stroke-linejoin="round"/>
+                                    <path d="m66 82 14 10 14-10M60 105h40M80 92v39" fill="none" stroke="#174b6b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M51 63a41 41 0 0 1 58 0M38 50a60 60 0 0 1 84 0" fill="none" stroke="#d8f3f1" stroke-width="5" stroke-linecap="round"/>
+                                    <circle cx="80" cy="38" r="6" fill="#fff1c8"/>
+                                </svg>
+                            </span>
+                            <span class="profile-toggle-name" id="nav-profile-name">Embedded</span>
+                            <svg class="profile-chevron" viewBox="0 0 12 8" aria-hidden="true"><path d="m1 1 5 5 5-5"/></svg>
+                        </button>
+                        <div class="profile-menu" id="profile-menu" hidden>
+                            <button id="change-profile" type="button">Switch profile</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Featured portfolio banner -->
+        <section id="home" class="hero">
+            <div class="hero-visual" data-profile-only="Telecom" aria-hidden="true">
+                <svg viewBox="0 0 900 620" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="network-glow" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0" stop-color="#f52b35" stop-opacity=".95"/>
+                            <stop offset="1" stop-color="#1b9db5" stop-opacity=".25"/>
+                        </linearGradient>
+                        <radialGradient id="network-halo">
+                            <stop offset="0" stop-color="#ee1823" stop-opacity=".28"/>
+                            <stop offset="1" stop-color="#ee1823" stop-opacity="0"/>
+                        </radialGradient>
+                    </defs>
+                    <circle cx="565" cy="320" r="290" fill="url(#network-halo)"/>
+                    <g fill="none" stroke="url(#network-glow)" stroke-width="2">
+                        <path d="M90 450 260 350 390 420 535 245 690 330 835 160"/>
+                        <path d="M185 170 310 260 455 145 535 245 720 90"/>
+                        <path d="M260 350 310 260 455 145 690 330 755 500"/>
+                        <path d="M90 450 185 170 455 145 835 160"/>
+                        <circle cx="90" cy="450" r="8" fill="#f52b35"/>
+                        <circle cx="185" cy="170" r="7" fill="#f52b35"/>
+                        <circle cx="260" cy="350" r="10" fill="#f52b35"/>
+                        <circle cx="310" cy="260" r="7" fill="#f52b35"/>
+                        <circle cx="390" cy="420" r="7" fill="#f52b35"/>
+                        <circle cx="455" cy="145" r="10" fill="#f52b35"/>
+                        <circle cx="535" cy="245" r="12" fill="#ffb05e"/>
+                        <circle cx="690" cy="330" r="9" fill="#f52b35"/>
+                        <circle cx="720" cy="90" r="7" fill="#ffb05e"/>
+                        <circle cx="755" cy="500" r="7" fill="#f52b35"/>
+                        <circle cx="835" cy="160" r="9" fill="#ffb05e"/>
+                    </g>
+                    <g transform="translate(430 195)" fill="none" stroke="#f8d9c4" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M105 225 65 80 25 225M43 160h44M35 192h60M65 80V42" stroke-width="8"/>
+                        <path d="M39 42a37 37 0 0 1 52 0M23 26a60 60 0 0 1 84 0" stroke="#f52b35" stroke-width="7"/>
+                        <circle cx="65" cy="38" r="8" fill="#ffb05e" stroke="none"/>
+                        <path d="M48 226h35" stroke-width="8"/>
+                    </g>
+                </svg>
+            </div>
+            <div class="hero-visual hero-visual-embedded" data-profile-only="Embedded" aria-hidden="true">
+                <svg viewBox="0 0 900 620" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="circuit-glow" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0" stop-color="#43d9e8" stop-opacity=".95"/>
+                            <stop offset="1" stop-color="#f3a83b" stop-opacity=".4"/>
+                        </linearGradient>
+                        <radialGradient id="circuit-halo">
+                            <stop offset="0" stop-color="#1e9db5" stop-opacity=".3"/>
+                            <stop offset="1" stop-color="#1e9db5" stop-opacity="0"/>
+                        </radialGradient>
+                    </defs>
+                    <circle cx="565" cy="320" r="290" fill="url(#circuit-halo)"/>
+                    <g fill="none" stroke="url(#circuit-glow)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M60 155h190l60 60h100M60 465h185l55-55h100M840 160H690l-55 55h-95M840 465H680l-45-55h-95"/>
+                        <path d="M160 70v95l45 45v80M160 550v-75l45-45v-80M740 70v95l-45 45v80M740 550v-75l-45-45v-80"/>
+                        <rect x="365" y="230" width="180" height="180" rx="20" fill="#102f49" stroke="#f3a83b" stroke-width="7"/>
+                        <rect x="405" y="270" width="100" height="100" rx="12" fill="#f3a83b" stroke="none"/>
+                        <path d="M390 205v25m40-25v25m40-25v25m40-25v25m40-25v25m-160 180v25m40-25v25m40-25v25m40-25v25m40-25v25M340 255h25m-25 40h25m-25 40h25m-25 40h25m180-120h25m-25 40h25m-25 40h25m-25 40h25" stroke="#f3a83b"/>
+                    </g>
+                    <g fill="#f3a83b">
+                        <circle cx="60" cy="155" r="10"/><circle cx="60" cy="465" r="10"/>
+                        <circle cx="840" cy="160" r="10"/><circle cx="840" cy="465" r="10"/>
+                        <circle cx="160" cy="70" r="9"/><circle cx="740" cy="550" r="9"/>
+                    </g>
+                </svg>
+            </div>
+            <div class="hero-shade"></div>
+            <div class="hero-content">
+                <p class="hero-kicker">Feature Portfolio</p>
+                <h1 class="hero-title">Jay Desai</h1>
+                <p class="hero-subtitle" data-profile-only="Embedded">Embedded Engineer</p>
+                <p class="hero-subtitle" data-profile-only="Telecom">Senior Software Engineer</p>
+                <div class="hero-meta" aria-label="Areas of expertise">
+                    <span data-profile-only="Embedded">Matrix Comsec ● Access Control Devices ● IP-Phone &amp; PBX</span>
+                    <span data-profile-only="Telecom">Airspan Networks ● eNodeB ● gNodeB ● Small Cells ● Private Networks</span>
+                </div>
+                <p class="hero-description" data-profile-only="Embedded">
+                    <strong>Technologies worked on:</strong> Finger Print Sensor, RFID Card Reader, IP-PBX Machine, Microcontroller and Microprocessor
+                </p>
+                <p class="hero-description" data-profile-only="Telecom">
+                    <strong>Technologies working on:</strong> LTE/NR Protocol Stack, Radio Resource Management, Core Network Communication
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary"><span aria-hidden="true">▶</span> Explore Projects</a>
+                    <a href="#about" class="btn btn-secondary">More About Me</a>
+                </div>
+            </div>
+        </section>
+
+    <!-- Company Section -->
+    <section id="company" class="company-section">
+        <div class="container">
+            <h2 class="section-title">Companies I've Worked With</h2>
+            <div class="company-grid">
+                <article class="company-card" data-profile-only="Telecom">
+                    <span class="company-mark" aria-hidden="true">A</span>
+                    <h3>Airspan Networks</h3>
+                    <p class="company-role">Software Engineering · 2021–Present</p>
+                    <p>Developing embedded software for private LTE and 5G networks, including eNB connectivity and network features.</p>
+                </article>
+                <article class="company-card" data-profile-only="Embedded">
+                    <span class="company-mark" aria-hidden="true">M</span>
+                    <h3>Matrix Comsec</h3>
+                    <p class="company-role">Embedded Software Engineer · 2018–2021</p>
+                    <p>Built embedded features for IP-PBX, access control, Wi-Fi positioning, and device integrations.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p data-profile-only="Embedded">
+                        I'm an Embedded Engineer with experience building firmware for Matrix Comsec access control, IP-PBX, and connected devices.
+                    </p>
+                    <p data-profile-only="Telecom">
+                        I'm a Senior Software Engineer with 5+ years of experience in Firmware Development, Embedded Systems, and 5G Technology. 
+                        Currently working at <strong>Airspan Networks</strong>, I specialize in designing and developing robust solutions for mobile networks.
+                    </p>
+                    <p data-profile-only="Embedded">
+                        My work includes biometric and RFID integrations, Wiegand interfaces, and embedded device communication.
+                    </p>
+                    <p data-profile-only="Telecom">
+                        My expertise includes 4G LTE, 5G architecture, Real-time embedded systems, and IoT applications. I'm passionate about solving complex 
+                        technical challenges and leading teams to deliver high-quality solutions that impact millions of users.
+                    </p>
+                    <div class="skills-section">
+                        <h3>Top Skills</h3>
+                        <div class="skills-grid">
+                            <span class="skill-badge" data-profile-only="Embedded">Firmware</span>
+                            <span class="skill-badge" data-profile-only="Embedded">Fingerprint Sensors</span>
+                            <span class="skill-badge" data-profile-only="Embedded">RFID</span>
+                            <span class="skill-badge" data-profile-only="Embedded">IP-PBX</span>
+                            <span class="skill-badge" data-profile-only="Embedded">Microcontrollers</span>
+                            <span class="skill-badge" data-profile-only="Embedded">Wiegand</span>
+                            <span class="skill-badge" data-profile-only="Telecom">5G Technology</span>
+                            <span class="skill-badge" data-profile-only="Telecom">Embedded Systems</span>
+                            <span class="skill-badge" data-profile-only="Telecom">C/C++</span>
+                            <span class="skill-badge" data-profile-only="Telecom">Linux</span>
+                            <span class="skill-badge" data-profile-only="Telecom">Real-time Systems</span>
+                            <span class="skill-badge" data-profile-only="Telecom">4G LTE</span>
+                            <span class="skill-badge" data-profile-only="Telecom">Team Leadership</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-stats">
+                    <div class="stat" data-profile-only="Embedded">
+                        <div class="stat-number">2+</div>
+                        <div class="stat-label">Years at Matrix Comsec</div>
+                    </div>
+                    <div class="stat" data-profile-only="Telecom">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat" data-profile-only="Telecom">
+                        <div class="stat-number">20+</div>
+                        <div class="stat-label">Projects Delivered</div>
+                    </div>
+                    <div class="stat" data-profile-only="Telecom">
+                        <div class="stat-number">100+</div>
+                        <div class="stat-label">Publications & Articles</div>
+                    </div>
+                    <div class="stat" data-profile-only="Embedded">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Embedded Product Areas</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card" data-profile-only="Embedded">
+                    <div class="project-image"><div class="project-placeholder">IP-PBX ACD</div></div>
+                    <div class="project-content">
+                        <h3>Automated Call Distribution</h3>
+                        <p>Implemented an IP-PBX call-centre feature that routes incoming customer calls to available care agents.</p>
+                        <div class="project-tags"><span class="tag">IP-PBX</span><span class="tag">Embedded</span><span class="tag">Call Routing</span></div>
+                        <a href="projects/matrix-acd.html" class="project-link">Learn More →</a>
+                    </div>
+                </div>
+                <div class="project-card" data-profile-only="Embedded">
+                    <div class="project-image"><div class="project-placeholder">RFID &amp; WPS</div></div>
+                    <div class="project-content">
+                        <h3>Wireless Positioning System</h3>
+                        <p>Researched WPS technology and implemented it across Wi-Fi-enabled COSEC access-control devices.</p>
+                        <div class="project-tags"><span class="tag">RFID</span><span class="tag">Wi-Fi</span><span class="tag">Access Control</span></div>
+                        <a href="projects/matrix-wps.html" class="project-link">Learn More →</a>
+                    </div>
+                </div>
+                <div class="project-card" data-profile-only="Embedded">
+                    <div class="project-image"><div class="project-placeholder">Wiegand</div></div>
+                    <div class="project-content">
+                        <h3>Wiegand Device Integration</h3>
+                        <p>Designed configurable Wiegand protocol support to connect COSEC devices with third-party door systems.</p>
+                        <div class="project-tags"><span class="tag">Wiegand</span><span class="tag">Microcontrollers</span><span class="tag">Integration</span></div>
+                        <a href="projects/matrix-wiegand.html" class="project-link">Learn More →</a>
+                    </div>
+                </div>
+                <div class="project-card" data-profile-only="Embedded">
+                    <div class="project-image"><div class="project-placeholder">AEBAS</div></div>
+                    <div class="project-content">
+                        <h3>Aadhaar Biometric Attendance</h3>
+                        <p>Created the application layer for Aadhaar Enabled Biometric Attendance System devices.</p>
+                        <div class="project-tags"><span class="tag">Biometrics</span><span class="tag">Firmware</span><span class="tag">Device Integration</span></div>
+                        <a href="projects/matrix-aebas.html" class="project-link">Learn More →</a>
+                    </div>
+                </div>
+                <!-- Dynamic IP Support Project -->
+                <div class="project-card" data-profile-only="Telecom">
+                    <div class="project-image">
+                        <div class="project-placeholder">Dynamic IP</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Dynamic IP Support at eNB</h3>
+                        <p>Enabled seamless S1, X2, and IPsec connection restarts without node reboot for Meta Private Network deployment.</p>
+                        <div class="project-tags">
+                            <span class="tag">5G</span>
+                            <span class="tag">Networking</span>
+                            <span class="tag">C++</span>
+                        </div>
+                        <a href="projects/dynamic-ip.html" class="project-link">Learn More →</a>
+                    </div>
+                </div>
+
+                <!-- 5G UAC Project -->
+                <div class="project-card" data-profile-only="Telecom">
+                    <div class="project-image">
+                        <div class="project-placeholder">5G UAC</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>5G UAC Implementation</h3>
+                        <p>Developed deep understanding of 5G User Access Control, supported peers in resolving delays, and facilitated smooth QA handover.</p>
+                        <div class="project-tags">
+                            <span class="tag">5G</span>
+                            <span class="tag">Architecture</span>
+                            <span class="tag">Leadership</span>
+                        </div>
+                        <a href="projects/5g-uac.html" class="project-link">Learn More →</a>
+                    </div>
+                </div>
+
+                <!-- SFTP-Port Support Project -->
+                <div class="project-card" data-profile-only="Telecom">
+                    <div class="project-image">
+                        <div class="project-placeholder">SFTP Security</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Configurable SFTP-Port Support</h3>
+                        <p>Designed and delivered configurable SFTP-Port support across all Airspan eNBs for secure administrative access.</p>
+                        <div class="project-tags">
+                            <span class="tag">Security</span>
+                            <span class="tag">Networking</span>
+                            <span class="tag">Firmware</span>
+                        </div>
+                        <a href="projects/sftp-port.html" class="project-link">Learn More →</a>
+                    </div>
+                </div>
+
+                <!-- S1-Authentication Project -->
+                <div class="project-card" data-profile-only="Telecom">
+                    <div class="project-image">
+                        <div class="project-placeholder">S1-Auth</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>S1-Authentication Feature</h3>
+                        <p>Designed & developed S1-Authentication feature with thorough analysis, integration with Samsung Core, and comprehensive validation.</p>
+                        <div class="project-tags">
+                            <span class="tag">4G LTE</span>
+                            <span class="tag">Security</span>
+                            <span class="tag">Integration</span>
+                        </div>
+                        <a href="projects/s1-auth.html" class="project-link">Learn More →</a>
+                    </div>
+                </div>
+
+                <!-- 4G-5G Interworking Project -->
+                <div class="project-card" data-profile-only="Telecom">
+                    <div class="project-image">
+                        <div class="project-placeholder">4G-5G Bridge</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>4G-5G Interworking Solution</h3>
+                        <p>Developed bug-free 4G-5G interworking solution for Jio network, delivering 10 Cr profit gain.</p>
+                        <div class="project-tags">
+                            <span class="tag">5G</span>
+                            <span class="tag">4G LTE</span>
+                            <span class="tag">Production</span>
+                        </div>
+                        <a href="projects/4g5g-interworking.html" class="project-link">Learn More →</a>
+                    </div>
+                </div>
+
+                <!-- WPS Features Project -->
+                <div class="project-card" data-profile-only="Telecom">
+                    <div class="project-image">
+                        <div class="project-placeholder">WPS Features</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Wireless Priority System (WPS)</h3>
+                        <p>Conceptualized, executed, and deployed WPS features for T-Mobile with bug-free performance and exceptional client satisfaction.</p>
+                        <div class="project-tags">
+                            <span class="tag">Wireless</span>
+                            <span class="tag">Priority System</span>
+                            <span class="tag">T-Mobile</span>
+                        </div>
+                        <a href="projects/wps-features.html" class="project-link">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <h2 class="section-title">Gallery</h2>
+            <p class="section-intro">A visual snapshot of the systems and technologies behind my work.</p>
+            <div class="gallery-grid">
+                <article class="gallery-card" data-profile-only="Telecom">
+                    <div class="gallery-art gallery-network" aria-hidden="true">
+                        <span class="gallery-orbit"></span><span class="gallery-node node-one"></span>
+                        <span class="gallery-node node-two"></span><span class="gallery-node node-three"></span>
+                        <span class="gallery-art-label">5G NETWORKS</span>
+                    </div>
+                    <h3>Connected Networks</h3>
+                    <p>Private LTE/5G, eNB connectivity, and network interworking.</p>
+                </article>
+                <article class="gallery-card" data-profile-only="Embedded">
+                    <div class="gallery-art gallery-firmware" aria-hidden="true">
+                        <span class="chip-core">C</span><span class="chip-line line-one"></span>
+                        <span class="chip-line line-two"></span><span class="gallery-art-label">FIRMWARE</span>
+                    </div>
+                    <h3>Embedded Systems</h3>
+                    <p>Real-time software, Linux systems, and device-level development.</p>
+                </article>
+                <article class="gallery-card" data-profile-only="Embedded">
+                    <div class="gallery-art gallery-security" aria-hidden="true">
+                        <span class="shield-shape">✓</span><span class="gallery-art-label">SECURE ACCESS</span>
+                    </div>
+                    <h3>Device Integrations</h3>
+                    <p>RFID, Wiegand, and biometric integrations for connected access-control devices.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="timeline">
+                <!-- Airspan Current -->
+                <div class="timeline-item" data-profile-only="Telecom">
+                    <div class="timeline-marker">●</div>
+                    <div class="timeline-content">
+                        <h3>Senior Engineer, Software</h3>
+                        <div class="company">Airspan Networks | Bengaluru, Karnataka</div>
+                        <div class="period">April 2025 - Present (1 year 6 months)</div>
+                        <ul class="accomplishments">
+                            <li>Led Dynamic IP support project at eNB for Meta Private Network deployment</li>
+                            <li>Developed strong understanding of 5G UAC and supported team in timely delivery</li>
+                            <li>Facilitated smooth handover to QA with structured presentations</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Airspan Previous -->
+                <div class="timeline-item" data-profile-only="Telecom">
+                    <div class="timeline-marker">●</div>
+                    <div class="timeline-content">
+                        <h3>Real Time Embedded Engineer</h3>
+                        <div class="company">Airspan Networks | Bengaluru</div>
+                        <div class="period">November 2022 - March 2025 (2 years 5 months)</div>
+                        <ul class="accomplishments">
+                            <li>Designed configurable SFTP-Port support across all Airspan eNBs</li>
+                            <li>Created end-to-end Cell-Unavailability KPI solution with complete documentation</li>
+                            <li>Delivered bug-free 4G-5G interworking solution generating 10 Cr profit for Jio</li>
+                            <li>Led team of 3 members for OP-command delivery to Rakuten</li>
+                            <li>Resolved critical production issue at Jio within 24 hours</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Jr. Embedded Engineer -->
+                <div class="timeline-item" data-profile-only="Telecom">
+                    <div class="timeline-marker">●</div>
+                    <div class="timeline-content">
+                        <h3>Jr. Real Time Embedded Engineer</h3>
+                        <div class="company">Airspan Networks | Bengaluru</div>
+                        <div class="period">January 2021 - November 2022 (1 year 11 months)</div>
+                        <ul class="accomplishments">
+                            <li>Initiated team-wide learning sessions on 5G technology</li>
+                            <li>Resolved critical production issues with unit testing</li>
+                            <li>Enhanced team expertise and collaboration</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Matrix Comsec -->
+                <div class="timeline-item" data-profile-only="Embedded">
+                    <div class="timeline-marker">●</div>
+                    <div class="timeline-content">
+                        <h3>Embedded Software Engineer</h3>
+                        <div class="company">Matrix Comsec | Vadodara, Gujarat</div>
+                        <div class="period">October 2018 - January 2021 (2 years 4 months)</div>
+                        <ul class="accomplishments">
+                            <li>Implemented Automated Call Distribution (ACD) for Call Centre operations</li>
+                            <li>Designed AWS IoT Message Broker-like application for ACD data handling</li>
+                            <li>Researched and implemented WPS Technology across WiFi-enabled COSEC devices</li>
+                            <li>Designed Wiegand protocol for third-party device integration</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications" class="publications">
+        <div class="container">
+            <h2 class="section-title">Publications & Articles</h2>
+            <div class="publications-grid">
+                <article class="publication-card">
+                    <div class="pub-icon">📰</div>
+                    <h3>The Multi-Utility FRS Drone</h3>
+                    <p>Technical analysis of drone applications in emergency response and surveillance systems.</p>
+                    <a href="https://medium.com/@jaydesai36" target="_blank" class="pub-link">Read on Medium →</a>
+                </article>
+                <article class="publication-card" data-profile-only="Embedded">
+                    <div class="pub-icon">🧵</div>
+                    <h3>Thread Cancellation in Linux</h3>
+                    <p>Deep dive into Linux thread cancellation mechanisms and best practices.</p>
+                    <a href="https://medium.com/@jaydesai36" target="_blank" class="pub-link">Read on Medium →</a>
+                </article>
+                <article class="publication-card" data-profile-only="Embedded">
+                    <div class="pub-icon">🔒</div>
+                    <h3>Types of Mutex in Linux</h3>
+                    <p>Comprehensive guide to different mutex types and their applications in concurrent programming.</p>
+                    <a href="https://medium.com/@jaydesai36" target="_blank" class="pub-link">Read on Medium →</a>
+                </article>
+                <article class="publication-card" data-profile-only="Embedded">
+                    <div class="pub-icon">✍️</div>
+                    <h3>Write less, Code more</h3>
+                    <p>Best practices for writing efficient and maintainable code with minimal complexity.</p>
+                    <a href="https://medium.com/@jaydesai36" target="_blank" class="pub-link">Read on Medium →</a>
+                </article>
+                <article class="publication-card" data-profile-only="Embedded">
+                    <div class="pub-icon">🔌</div>
+                    <h3>Wiegand Interface</h3>
+                    <p>Technical documentation of Wiegand protocol implementation in embedded systems.</p>
+                    <a href="https://medium.com/@jaydesai36" target="_blank" class="pub-link">Read on Medium →</a>
+                </article>
+                <article class="publication-card" data-profile-only="Telecom">
+                    <div class="pub-icon">📚</div>
+                    <h3>4G LTE Evolved Packet Core Concepts</h3>
+                    <p>Call flows and architectural concepts in LTE EPC systems.</p>
+                    <a href="https://medium.com/@jaydesai36" target="_blank" class="pub-link">Read on Medium →</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Connect</h3>
+                    <p>I'm always open to interesting projects and opportunities. Feel free to reach out!</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div>
+                                <div class="contact-label">Email</div>
+                                <a href="mailto:jaydesai36@gmail.com">jaydesai36@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📱</div>
+                            <div>
+                                <div class="contact-label">Phone</div>
+                                <a href="tel:+919408026101">+91 9408026101</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">💼</div>
+                            <div>
+                                <div class="contact-label">LinkedIn</div>
+                                <a href="https://www.linkedin.com/in/jjdesai" target="_blank">linkedin.com/in/jjdesai</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📝</div>
+                            <div>
+                                <div class="contact-label">Blog</div>
+                                <a href="https://medium.com/@jaydesai36" target="_blank">medium.com/@jaydesai36</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Jay Desai. All rights reserved. |
+                <span data-profile-only="Embedded">Embedded Engineer @ Matrix Comsec</span>
+                <span data-profile-only="Telecom">Senior Software Engineer @ Airspan Networks</span>
+            </p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/jjdesai" target="_blank" title="LinkedIn">LinkedIn</a>
+                <a href="https://medium.com/@jaydesai36" target="_blank" title="Blog">Blog</a>
+                <a href="mailto:jaydesai36@gmail.com" title="Email">Email</a>
+            </div>
+        </div>
+    </footer>
+    </div>
+
+    <script src="scripts/script.js"></script>
+</body>
+</html>
